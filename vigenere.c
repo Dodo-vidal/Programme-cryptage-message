@@ -5,10 +5,14 @@
 #include "alpha.h"
 #include "vigenere.h"
 
+/*Procédure qui transforme la clé de caractères: charCle, en un tableau d'entiers: tabCle
+	- chaque caractère est remplacé par son rang dans l'alphabet
+	- la clé est répété tout le long du message
+	- si le message contient un espace, le tableau tabCle contiendra un 0 au même endroit*/
 void cleVigenere(wchar_t* message, wchar_t* charCle, int* tabCle) {
 	int i;
 	for (i=0; i < wcslen(message); i++) {
-                for (int j=0; j < wcslen(charCle); j++) {
+        for (int j=0; j < wcslen(charCle); j++) {
 			if (message[i]==L' ') {
 				tabCle[i]=0;
 				j-=1;
@@ -20,7 +24,8 @@ void cleVigenere(wchar_t* message, wchar_t* charCle, int* tabCle) {
 	}
 }
 
-
+/*Procédure qui chiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle situé à la même position,
+le résultat est copié dans la chaîne de caractère messCode*/
 void vigenereChiffrage(wchar_t* message, wchar_t* messCode, int* tabCle) {
 	for (int i=0; i < wcslen(message); i++) {
                 if ((L'a'<=message[i]) && (L'z'>=message[i])) {
@@ -34,6 +39,8 @@ void vigenereChiffrage(wchar_t* message, wchar_t* messCode, int* tabCle) {
 
 }
 
+/*Procédure qui déchiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle situé à la même position,
+le résultat est copié dans la chaîne de caractère messCode*/
 void vigenereDechiffrage(wchar_t* message, wchar_t* messCode, int* tabCle) {
 	for (int i=0; i < wcslen(message); i++) {
                 if ((L'a'<=message[i]) && (L'z'>=message[i])) {
