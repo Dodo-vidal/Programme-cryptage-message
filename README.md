@@ -42,8 +42,8 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
     6) Vous pouvez récupéré le message dan sle fichier "resultat.txt"
 
 # Fonctions et procédures
- ##fichier alpha.c
+ ## Fichier alpha.c
   /*Fonction qui vérifie si le texte passé en paramètre contient des caractères spéciaux
-  -retourne -1 si un caractère du texte est égal à un caractère spécial
+  - retourne -1 si un caractère du texte est égal à un caractère spécial
   - retourne 1 sinon*/
- ###int verifAlphaNum(wchar_t* texte);
+ ### int verifAlphaNum(wchar_t* texte);
