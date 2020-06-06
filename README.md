@@ -18,7 +18,7 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
     4) Lancez le programme en tapant "./main"
     
  ## Crypter un message
-    1) Saisissez votre message à cryper lorque le programme vous le demande --ne doit pas contenir de caractères spéciaux : ?./§!:;,('"]@^\`|[....
+    1) Saisissez votre message à cryper lorque le programme vous le demande (ne doit pas contenir de caractères spéciaux, ni de chiffres : ?./§!:;,('"]@^\`|[012345689, etc)
     2) Choisissez la méthode de chiffrement : 
       - Tapez 1 pour la méthode de César 
       - Tapez 2 pour la méthode de Vigenère
@@ -30,7 +30,7 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
     6) Vous pouvez récupéré le message dan sle fichier "resultat.txt"
     
  ## Décrypter un message
-    1) Saisissez votre message à décryper lorque le programme vous le demande --ne doit pas contenir de caractères spéciaux : ?./§!:;,('"]@^\`|[....
+    1) Saisissez votre message à cryper lorque le programme vous le demande (ne doit pas contenir de caractères spéciaux, ni de chiffres : ?./§!:;,('"]@^\`|[012345689, etc)
     2) Choisissez la méthode de déchiffrement : 
       - Tapez 1 pour la méthode de César 
       - Tapez 2 pour la méthode de Vigenère
