@@ -27,7 +27,7 @@ void main() {
 	//Tant que le texte saisi au clavier contient des caractères spéciaux, il doit être ressaisi
 	int correct = verifAlphaNum(texte);
 	while (correct ==-1) {
-		wprintf(L"Message incorrect, il ne doit pas contenir de ponctuation\nRessaisissez votre message :\n");
+		wprintf(L"Message incorrect, il ne doit pas contenir de ponctuation\n\nRessaisissez votre message :\n");
 		fgetws(texte, 2000, stdin);
 		correct = verifAlphaNum(texte);
 	}
@@ -45,17 +45,18 @@ void main() {
 	//Dans le cas où l'utilisateur à choisi la méthode de César
 	if (choix == 1) {
 		int cle;
-		
+		choix=0;
+
 		wprintf(L"Saississez la clé de codage :\n");
 		wscanf(L"%d", &cle);
 		getchar();
 		
 		wprintf(L"Voulez-vous chiffrer[1] ou déchiffrer[2] le message ?\n");
-	    wscanf(L"%d", &choix);
+	   	wscanf(L"%d", &choix);
 		getchar();
 		
 		//Dans le cas où l'utilisateur à choisi de chiffrer le message
-        if (choix == 1) {
+        	if (choix == 1) {
 			cesarChiffrage(message, messCode, cle);
 			wprintf(L"Message chiffré:\n%ls\n", messCode);
 		//Dans le cas où l'utilisateur à choisi de déchiffrer le message
@@ -68,23 +69,35 @@ void main() {
 	else if (choix == 2) {
 		wchar_t charCle[200];//clé en caractères qui sera saisie au clavier
 		int tabCle[200];//clé en valeur numérique
-		
-        wprintf(L"Saisissez la clé de codage (au moins deux caractères) :\n");
-       	wscanf(L"%ls", &charCle);
+		choix=0;
+
+	        wprintf(L"Saisissez la clé de codage (sans espaces) :\n");
+       		wscanf(L"%ls", &charCle);
 		cleVigenere(message, charCle, tabCle);//la cle en caractères est transformé en entiers
 		
 		wprintf(L"Voulez-vous chiffrer[1] ou déchiffrer[2] le message ?\n");
-        wscanf(L"%d", &choix);
+		wscanf(L"%d", &choix);
 		getchar();
 		
 		//Dans le cas où l'utilisateur à choisi de chiffrer le message
 		if (choix == 1) {
-            vigenereChiffrage(message, messCode, tabCle);
-            wprintf(L"Message chiffré:\n%ls\n", messCode);
+            		vigenereChiffrage(message, messCode, tabCle);
+            		wprintf(L"Message chiffré:\n%ls\n", messCode);
 		//Dans le cas où l'utilisateur à choisi de déchiffrer le message
-        } else if (choix == 2) {
-            vigenereDechiffrage(message, messCode, tabCle);
-            wprintf(L"Message déchiffré:\n%ls\n", messCode);
-        }
+        	} else if (choix == 2) {
+            		vigenereDechiffrage(message, messCode, tabCle);
+           		wprintf(L"Message déchiffré:\n%ls\n", messCode);
+        	}
+	}
+
+	//Enregistrement du traitement de cryptage dans le fichier resultat.txt
+	FILE* fichier;
+	fichier = fopen("resultat.txt", "w+");
+	if (fichier!= NULL) {
+		fwprintf(fichier, L"Le résultat du traitement est :\n%ls", messCode);
+		fclose(fichier);
+		wprintf(L"\n\nRetrouvez le résultat du chiffrement/déchiffrement dans le fichier resultat.txt\n\n\n\n");
+	}else {
+		wprintf(L"\nErreur : le résultat du traitement n'a pas pu être copié dans le fichier resultat.txt\nIl s'affiche néanmoins au-dessus\n\n");
 	}
 }

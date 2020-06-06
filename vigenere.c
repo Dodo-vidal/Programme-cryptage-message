@@ -12,7 +12,7 @@
 void cleVigenere(wchar_t* message, wchar_t* charCle, int* tabCle) {
 	int i;
 	for (i=0; i < wcslen(message); i++) {
-        for (int j=0; j < wcslen(charCle); j++) {
+	        for (int j=0; j < wcslen(charCle); j++) {
 			if (message[i]==L' ') {
 				tabCle[i]=0;
 				j-=1;
