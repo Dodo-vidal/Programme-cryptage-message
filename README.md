@@ -43,7 +43,25 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
 
 # Fonctions et procédures
  ## Fichier alpha.c
-  /*Fonction qui vérifie si le texte passé en paramètre contient des caractères spéciaux
-  - retourne -1 si un caractère du texte est égal à un caractère spécial
-  - retourne 1 sinon*/
- ### int verifAlphaNum(wchar_t* texte);
+  ### int verifAlphaNum(wchar_t* texte);
+   Fonction qui vérifie si le texte passé en paramètre contient des caractères spéciaux
+   - retourne -1 si un caractère du texte est égal à un caractère spécial
+   - retourne 1 sinon.
+  ### int dansAlphabet(wchar_t caractere);
+   Fonction qui vérifie si le caratère passé en paramètre est dans le tableau "alphabet" 
+   - si le caractère est dans le tableau, la fonction renvoie le compteur i
+   - sinon renvoie la valeur -1.
+  ### int alphaNum(wchar_t caract);
+   Fonction qui renvoie le rang du caractere, passé en paramètre, dans l'alphabet de la langue française.
+  ### void convertAccents(wchar_t* texte, wchar_t* message);
+   Procédure qui copie le texte, passé en paramètre, dans le message, passé en paramètre,
+   en remplacent les caractères accentués par leur équivalent sans accent.
+ ## Fichier cesar.c
+  ### void cesarChiffrage(wchar_t* message, wchar_t* messCode, int cle);
+   Procédure qui chiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle, passé en paramètre.
+   Le résultat est copié dans la chaîne de caractère messCode.
+  ### void cesarDechiffrage(wchar_t* message, wchar_t* messCode, int cle);
+   Procédure qui déchiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle, passé en paramètre
+   Le résultat est copié dans la chaîne de caractère messCode.
+   
+   
