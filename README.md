@@ -77,7 +77,7 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
    - chaque caractère est remplacé par son rang dans l'alphabet
    - la clé est répété tout le long du message
    - si le message contient un espace, le tableau tabCle contiendra un 0 au même endroit afin d'éviter un décalage sur le caractère " ".
-   Cas d'erreur : si la clé saisi contient un caractère espace.
+   - Cas d'erreur : si la clé saisi contient un caractère espace.
   ### void vigenereChiffrage(wchar_t* message, wchar_t* messCode, int* tabCle);
    Procédure qui chiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle situé à la même position.
    Le résultat est copié dans la chaîne de caractère messCode
