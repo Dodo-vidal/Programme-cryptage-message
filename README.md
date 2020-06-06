@@ -74,9 +74,9 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
  ## Fichier vigenere.c
   ### void cleVigenere(wchar_t* message, wchar_t* charCle, int* tabCle);
    Procédure qui transforme la clé de caractères: charCle, en un tableau d'entiers: tabCle
-	  - chaque caractère est remplacé par son rang dans l'alphabet
-	  - la clé est répété tout le long du message
-	  - si le message contient un espace, le tableau tabCle contiendra un 0 au même endroit afin d'éviter un décalage sur le caractère " ".
+   - chaque caractère est remplacé par son rang dans l'alphabet
+   - la clé est répété tout le long du message
+   - si le message contient un espace, le tableau tabCle contiendra un 0 au même endroit afin d'éviter un décalage sur le caractère " ".
    Cas d'erreur : si la clé saisi contient un caractère espace.
   ### void vigenereChiffrage(wchar_t* message, wchar_t* messCode, int* tabCle);
    Procédure qui chiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle situé à la même position.
@@ -91,15 +91,15 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
   - Tant que le texte saisi contient des carctères spéciaux (appel de la fonction verifAlphaNum()), la saisie est redemandé à l'utilisateur
   - Demande choix de la méthode de chiffrement entre César et Vigenère
   - si l'utilisateur tape 1 : 
-    -> Demande de saisir la clé
-    -> Demande choix entre chiffrer ou déchiffrer le message
-    -> si l'utilisateur tape 1 : appel de la fonction cesarChiffrage()
-    -> si l'utilisateur tape 2 : appel de la fonction cesarDechiffrage()
+    - Demande de saisir la clé
+    - Demande choix entre chiffrer ou déchiffrer le message
+    - si l'utilisateur tape 1 : appel de la fonction cesarChiffrage()
+    - si l'utilisateur tape 2 : appel de la fonction cesarDechiffrage()
   - sinon si l'utilisateur tape 2 :
-    -> Demande de saisir la clé
-    -> Demande choix entre chiffrer ou déchiffrer le message
-    -> si l'utilisateur tape 1 : appel de la fonction vigenereChiffrage()
-    -> si l'utilisateur tape 2 : appel de la fonction vigenereDechiffrage()
+    - Demande de saisir la clé
+    - Demande choix entre chiffrer ou déchiffrer le message
+    - si l'utilisateur tape 1 : appel de la fonction vigenereChiffrage()
+    - si l'utilisateur tape 2 : appel de la fonction vigenereDechiffrage()
   - le message codé ou décodé est enregistré dans le fichier "resultat.txt"
     A chaque exécution du programme le fichier est écrasé.
     
