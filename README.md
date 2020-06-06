@@ -56,12 +56,51 @@ Nous avons réalisé ce programme pour un projet informatique lors de notre 1èr
   ### void convertAccents(wchar_t* texte, wchar_t* message);
    Procédure qui copie le texte, passé en paramètre, dans le message, passé en paramètre,
    en remplacent les caractères accentués par leur équivalent sans accent.
+   
  ## Fichier cesar.c
   ### void cesarChiffrage(wchar_t* message, wchar_t* messCode, int cle);
    Procédure qui chiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle, passé en paramètre.
    Le résultat est copié dans la chaîne de caractère messCode.
+   - si le caractère est entre "a" et "z", il est décalé de la valeur de la clé modulo 26
+   - sinon si le caractère est un espace " ", le caractère est juste remplacé par un espace " "
+   - sinon le caractère est compris entre "A" et "Z", il est décalé de la valeur de la clé modulo 26.
   ### void cesarDechiffrage(wchar_t* message, wchar_t* messCode, int cle);
    Procédure qui déchiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle, passé en paramètre
    Le résultat est copié dans la chaîne de caractère messCode.
+   - si le caractère est entre "a" et "z", il est décalé de la valeur négative de la clé + 2600 (afin d'évité une valeur négative) modulo 26
+   - sinon si le caractère est un espace " ", le caractère est juste remplacé par un espace " "
+   - sinon le caractère est compris entre "A" et "Z", il est décalé de la valeur négative de la clé + 2600 (afin d'évité une valeur négative) modulo 26.
    
+ ## Fichier vigenere.c
+  ### void cleVigenere(wchar_t* message, wchar_t* charCle, int* tabCle);
+   Procédure qui transforme la clé de caractères: charCle, en un tableau d'entiers: tabCle
+	  - chaque caractère est remplacé par son rang dans l'alphabet
+	  - la clé est répété tout le long du message
+	  - si le message contient un espace, le tableau tabCle contiendra un 0 au même endroit afin d'éviter un décalage sur le caractère " ".
+   Cas d'erreur : si la clé saisi contient un caractère espace.
+  ### void vigenereChiffrage(wchar_t* message, wchar_t* messCode, int* tabCle);
+   Procédure qui chiffre le message, passé en paramètre, en décalant chaque caractère de la valeur de la cle situé à la même position.
+   Le résultat est copié dans la chaîne de caractère messCode
+  ### void vigenereDechiffrage(wchar_t* message, wchar_t* messCode, int* tabCle);
+   Procédure qui déchiffre le message, passé en paramètre, en décalant chaque caractère de la valeur négative de la cle situé à la même position.
+   Le résultat est copié dans la chaîne de caractère messCode.
    
+ ## Fichier void main();
+  - Affichage du nom du programme
+  - Demande de saisi du texte à l'utilisateur
+  - Tant que le texte saisi contient des carctères spéciaux (appel de la fonction verifAlphaNum()), la saisie est redemandé à l'utilisateur
+  - Demande choix de la méthode de chiffrement entre César et Vigenère
+  - si l'utilisateur tape 1 : 
+    -> Demande de saisir la clé
+    -> Demande choix entre chiffrer ou déchiffrer le message
+    -> si l'utilisateur tape 1 : appel de la fonction cesarChiffrage()
+    -> si l'utilisateur tape 2 : appel de la fonction cesarDechiffrage()
+  - sinon si l'utilisateur tape 2 :
+    -> Demande de saisir la clé
+    -> Demande choix entre chiffrer ou déchiffrer le message
+    -> si l'utilisateur tape 1 : appel de la fonction vigenereChiffrage()
+    -> si l'utilisateur tape 2 : appel de la fonction vigenereDechiffrage()
+  - le message codé ou décodé est enregistré dans le fichier "resultat.txt"
+    A chaque exécution du programme le fichier est écrasé.
+    
+  ### Cas d'erreurs : si l'utilisateur saisi un caractère autre que 1 ou 2 lors des choix
